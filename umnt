@@ -1,0 +1,4 @@
+#!/bin/sh
+#
+umount /dev/$1 | sleep 2s && hdparm -Y /dev/$1
+

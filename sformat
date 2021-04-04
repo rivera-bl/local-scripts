@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# THIS SCRIPT ERASE ALL THE DISK DATA AND MAKES A SINGLE 0700 PARTITION WITH AN EXFAT FORMAT, USE CAREFULLY
+
+sgdisk -Z /dev/$1
+sgdisk -n 0:0:0 -t 0:0700 /dev/$1
+mkfs.exfat /dev/"${1}"

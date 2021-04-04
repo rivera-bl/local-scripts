@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/rvv/wallpapers/iss042e215303_lrg.jpg' 

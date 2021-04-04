@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+bluetoothctl -- power on
+sleep 2
+bluetoothctl -- connect 00:18:09:6C:25:A2

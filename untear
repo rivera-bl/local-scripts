@@ -1,0 +1,20 @@
+#!/bin/env python3
+#
+import subprocess
+
+modFile = "/etc/X11/xorg.conf.d/20-intel.conf"
+
+f = open(modFile)
+lines = f.readlines()
+lineSearch = lines[4]
+
+if lineSearch[0] != '#':
+    subprocess.call(["sed -i '/\"TearFree\"/s/^/#/g' " + modFile], shell=True)
+    print("Untearing deactivated")
+    print("Log-out for changes to be applied")
+else:
+    subprocess.call(["sed -i '/\"TearFree\"/s/^#//g' " + modFile], shell=True)
+    print("Untearing applied")
+    print("Log-out for changes to be applied")
+
+f.close()

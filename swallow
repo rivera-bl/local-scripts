@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+#swallow <program> <options>(optional) <filepath>
+#example: swallow mpv --fs /path/to/file
+WINID=$(xdotool getactivewindow)
+
+$1 $(xdotool windowunmap --sync $WINID) $2 "${@: -1}"
+
+wait 
+
+xdotool windowmap $WINID
