@@ -1,5 +1,9 @@
 #!/bin/env python3
 #
+# i'm on a thinkpad t420s that experiences video tearing
+# only way i've found to fix it was by: 1. installing xf86-video-intel pkg, 2. creating the file /etc/X11/xorg.conf.d/20-intel.conf 
+# nonetheless the option "tearfree" "true" that fixes the problem, is known to freeze the video card randomly
+# so i've made this script to "toggle" the option programatically by commenting/uncommenting that line
 import subprocess
 
 modFile = "/etc/X11/xorg.conf.d/20-intel.conf"

@@ -1,7 +1,8 @@
 #!/bin/sh
 #
-#swallow <program> <options>(optional) <filepath>
-#example: swallow mpv --fs /path/to/file
+# simple script that hides the terminal when running programs like mpv
+# swallow <program> <options>(optional) <filepath>
+# example: swallow mpv --fs /path/to/file
 WINID=$(xdotool getactivewindow)
 
 $1 $(xdotool windowunmap --sync $WINID) $2 "${@: -1}"
