@@ -1,18 +1,22 @@
 #!/bin/sh
+#
+# For creating & setting permissions of script file for bash/python
+# TODO: Check if file already exists before touch
 
-FILENAME=$2
-SUFIX=$1
+FILENAME=$1
+TYPE=$2
 DIR=$HOME/.local/bin
-FPATH=$DIR/$SUFIX$FILENAME
+FPATH=$DIR/$FILENAME
 
 touch $FPATH
 
-echo "#!/bin/sh
-#
-" > $FPATH
+if [[ $2 = "bash" ]]; then
+    echo -e "#!/bin/sh\n#\n" > $FPATH
+elif [[ $2 = "python" ]]; then
+    echo -e "#!/bin/env python3\n#\n" > $FPATH
+fi
 
 chmod 755 $FPATH
-
 $EDITOR $FPATH
 
 
