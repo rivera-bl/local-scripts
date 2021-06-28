@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # For creating & setting permissions of script file for bash/python
-# TODO: Check if file already exists before touch
+# TODO: Check if file already exists before touch & validate that $2 isn't empty
 
 FILENAME=$1
 TYPE=$2

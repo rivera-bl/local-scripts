@@ -4,19 +4,18 @@
 # TODO: add a third argument for creating Classes
 
 PROJTYPE=$1
-DIR=$2
-FPATH=$HOME/$2
+FPATH=$2
 
 if [[ $1 = "front" ]]; then
     mkdir -p $FPATH && cd "$_"
     mkdir -p {js,css}
-    touch css/app.css js/{app,index}.js
+    touch css/style.css js/{app,index}.js
     cp $HOME/.local/bin/helpers/mkprj/index.html index.html
     $EDITOR $FPATH/index.html
     # echo "Front Project created in ${FPATH}"
 elif [[ $1 = "--help" ]]; then
     echo "First Argument: Type of Project. Options: {front}"
-    echo "Second Argument: Directory of New Project."
+    echo "Second Argument: Full Path of New Project."
 else
     echo "Enter a valid type of Project. Use \"--help\" for options"
 fi
