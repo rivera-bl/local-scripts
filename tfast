@@ -1,0 +1,29 @@
+#!/bin/sh
+
+touch main.tf outputs.tf variables.tf terraform.tfvars
+
+# data.tf
+cp ~/.local/bin/tfast-data.tf data.tf
+
+# main.tf
+echo 'provider "aws" { 
+  region = var.region
+}' >> main.tf
+
+# outputs.tf
+echo 'output "default-vpc-first-subnet" {
+  value = [for s in data.aws_subnet.this : s.id][0]
+}' >> outputs.tf
+
+# variables.tf
+echo 'variable "region" {
+  type  = string
+  description = "Region where the resources will be created"
+}' >> variables.tf
+
+# terraform.tfvars
+# TODO: pass region value as a parameter and use "us-east-1" if parameter is empty
+echo 'region = "us-east-1"' >> terraform.tfvars
+
+# TODO: only init if no errors
+terraform init
