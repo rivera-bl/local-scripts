@@ -1,0 +1,11 @@
+#!/bin/sh
+# TODO: when clicking the module should get more info of the song, like album
+
+NAME=$(mpc | head -1)
+TIME=$(mpc | sed -n 2p | awk '{print $3}')
+STATUS=$(mpc | sed -n 2p | awk '{print $1}')
+
+if [ $STATUS == "[playing]" ]; then
+  echo "🎵 $NAME $TIME"
+fi
+
