@@ -13,3 +13,11 @@ docker push registry.gitlab.com/cencosud-ds/utils/docker-images/gitlab/runner:$1
 
 curl -s --header "PRIVATE-TOKEN: $GITLAB_PRIVATE_TOKEN" \
   "https://gitlab.com/api/v4/projects/22341850/registry/repositories/1478202/tags" | jq -r '.[].name'
+
+# # checks
+# kubectl get deployment -o yaml | grep image
+
+# # todo
+# update bookstack with:
+# argocd refresh in bootstraping
+# grep image from deployment
